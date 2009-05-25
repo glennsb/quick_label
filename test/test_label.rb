@@ -4,6 +4,11 @@ require "label"
 
 class TestLabel < Test::Unit::TestCase
 
+  TEST_LABEL = "_/3A_/20F
+ This is a test label
+ It has two lines
+-*-"
+
   DEFAULT_OPTS =
   {
     :text => "This is a test label\nIt has two lines",
@@ -49,6 +54,10 @@ class TestLabel < Test::Unit::TestCase
     assert_not_nil(l)
     assert(!l.valid?,'The label should be invalid since it has too many columns')
     assert(l.errors[:text], "No error on size")    
+  end
+  
+  def test_should_produce_label_when_valid
+    assert_equal(@l.formatted_label, TEST_LABEL)
   end
   
   private

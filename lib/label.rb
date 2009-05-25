@@ -2,15 +2,21 @@
 class Label
   DEFAULT_SIZE = 20
   
+  HEADER = "_/3A_/"
+  
+  FOOTER = "-*-"
+  
   LABEL_FORMATS = 
   {
     20 => {
       :rows => 8,
-      :cols => 20
+      :cols => 20,
+      :font_size => 20
     },
     18 => {
       :rows => 9,
-      :cols => 23
+      :cols => 23,
+      :font_size => 18
     }
   }
   
@@ -31,6 +37,19 @@ class Label
     @errors = {}
     return validate_format && map_text_for_output && validate_output_text
   end #valid?
+  
+  #
+  # Get the string formatted such that it can be sent to the barcode printer
+  # if the input is not valid, will return a blank string
+  #
+  def formatted_label
+    return "" unless self.valid?
+    
+    str = "#{HEADER}#{LABEL_FORMATS[@size][:font_size]}F\n"
+    str += @output.inject("") {|accum, line| accum += " #{line}\n"}
+    str += "#{FOOTER}"
+    return str
+  end
   
   private
   
