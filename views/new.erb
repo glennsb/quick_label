@@ -22,6 +22,8 @@
   <textarea name='labels' rows='8' cols='21'><%= @strip.raw_input if @strip %></textarea>
   <br/>
   <input name='submit' type='submit' value='validate'/>
+  <% if @strip && @strip.valid? %>
   <br/>
   <input name='submit' type='submit' value='print'>
+  <% end %>
 </form>
