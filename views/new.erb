@@ -1,0 +1,27 @@
+<% if @strip %>
+    <% if @strip.valid? %>
+      <h3>Valid!</h3>
+    <% else %>
+      <hr>Possible problems...</hr>
+      <ul>
+        <% @strip.errors.each do |e| %>
+        <li>Error at <%= e[:index]+1 %>: <%= e[:errors][:format] || e[:errors][:text] %>
+        <% end %>
+      </ul>
+    <% end %>
+    
+    <br/>
+    <pre>
+<%= @strip %>
+    </pre>
+<% end %>
+
+
+
+<form method="post">
+  <textarea name='labels' rows='8' cols='21'><%= @strip.raw_input if @strip %></textarea>
+  <br/>
+  <input name='submit' type='submit' value='validate'/>
+  <br/>
+  <input name='submit' type='submit' value='print'>
+</form>
