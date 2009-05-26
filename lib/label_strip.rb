@@ -22,7 +22,7 @@ class LabelStrip
   def initialize(label_input,options = {})
     @labels = []
     @options = DEFAULTS.dup.merge options
-
+    @valids = []
     append_input(label_input)
   end
 
@@ -30,6 +30,20 @@ class LabelStrip
     append_input(input)
   end
 
+  def valid?
+    self.to_s
+    return ! @valids.include?(false)
+  end
+  
+  def errors
+    return [] if valid?
+    errors = []
+    @valids.each_with_index do |validation,label_index|
+      next if validation
+      errors << {:index => label_index, :errors => @labels[label_index].errors}
+    end
+    return errors
+  end
   
   # output all label string versions of objects according to options.
   def to_s
