@@ -9,7 +9,7 @@ get "/quick_label" do
   erb :new
 end
 
-post "/quck_label" do
+post "/quick_label" do
   @strip = LabelStrip.new(params[:labels].gsub(/\r/,"\n"))
   case params[:submit]
     when /validate/
