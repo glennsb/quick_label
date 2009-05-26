@@ -1,8 +1,8 @@
 environment: production
 chdir: /usr/local/apps/quick_label
 address: 127.0.0.1
-user: www
-group: www
+#user: www
+#group: www
 port: 4567
 pid: /usr/local/apps/quick_label/thin.pid
 rackup: /usr/local/apps/quick_label/config.ru
