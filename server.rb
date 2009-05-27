@@ -4,12 +4,12 @@ require 'sinatra'
 require 'label_strip'
 
 
-get "/quick_label" do
+get "/quick_label*" do
   # @strip = LabelStrip.new("")
   erb :new
 end
 
-post "/quick_label" do
+post "/quick_label*" do
   @strip = LabelStrip.new(params[:labels].gsub(/\r/,"\n"))
   case params[:submit]
     when /validate/
