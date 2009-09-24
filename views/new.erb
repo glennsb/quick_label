@@ -24,6 +24,8 @@
   <input name='submit' type='submit' value='validate'/>
   <% if @strip && @strip.valid? %>
   <br/>
+  Copies: <input name='copies' type='text' maxlength='3' size='3' value='<%= @copies %>'>
+  <br>
   <input name='submit' type='submit' value='print'>
   <% end %>
 </form>
