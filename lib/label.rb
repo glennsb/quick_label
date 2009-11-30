@@ -10,7 +10,7 @@ class Label
   {
     0 => {
       :rows => 1,
-      :cols => 14,
+      :cols => 13,
       :font_size => 18
     }
   }
