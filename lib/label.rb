@@ -1,21 +1,16 @@
 # Basic wrapper to take text & show format for the label printer
 class Label
-  DEFAULT_SIZE = 20
+  DEFAULT_SIZE = 0
   
-  HEADER = "_/3A_/"
+  HEADER = "_/3A_/16,2,1,1/_/2t"
   
   FOOTER = "-*-"
   
   LABEL_FORMATS = 
   {
-    20 => {
-      :rows => 8,
-      :cols => 20,
-      :font_size => 20
-    },
-    18 => {
-      :rows => 9,
-      :cols => 23,
+    0 => {
+      :rows => 1,
+      :cols => 14,
       :font_size => 18
     }
   }
@@ -45,9 +40,9 @@ class Label
   def formatted_label
     return "" unless self.valid?
     
-    str = "#{HEADER}#{LABEL_FORMATS[@size][:font_size]}F\n"
-    str += @output.inject("") {|accum, line| accum += " #{line}\n"}
-    str += "#{FOOTER}"
+    str = "#{HEADER}"
+    str += @output.inject("") {|accum, line| accum += "#{line}"}
+    str += "_/0t\n#{FOOTER}"
     return str
   end
   
