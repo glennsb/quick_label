@@ -4,15 +4,13 @@ require "label"
 
 class TestLabel < Test::Unit::TestCase
 
-  TEST_LABEL = "_/3A_/20F
- This is a test label
- It has two lines
+  TEST_LABEL = "_/3A_/16,2,1,1/_/2tabcdefghijklm_/0t
 -*-"
 
   DEFAULT_OPTS =
   {
-    :text => "This is a test label\nIt has two lines",
-    :size => 20
+    :text => "abcdefghijklm",
+    :size => 0
   }
 
   def setup
