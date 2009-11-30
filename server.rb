@@ -5,12 +5,12 @@ require 'label_strip'
 
 require 'tempfile'
 
-get "/quick_label*" do
+get "/barcode_label*" do
   # @strip = LabelStrip.new("")
   erb :new
 end
 
-post "/quick_label*" do
+post "/barcode_label*" do
   @strip = LabelStrip.new(params[:labels].gsub(/\r/,"\n"))
   @copies = params[:copies].to_i
   if nil == @copies || @copies <= 0 || @copies > 100 then
