@@ -1,12 +1,12 @@
 environment: production
-chdir: /usr/local/apps/quick_label
+chdir: /usr/local/apps/quick_barcode
 address: 127.0.0.1
 #user: www
 #group: www
-port: 4567
-pid: /usr/local/apps/quick_label/thin.pid
-rackup: /usr/local/apps/quick_label/config.ru
-log: /usr/local/apps/quick_label/thin.log
+port: 4568
+pid: /usr/local/apps/quick_barcode/thin.pid
+rackup: /usr/local/apps/quick_barcode/config.ru
+log: /usr/local/apps/quick_barcode/thin.log
 max_conns: 1024
 timeout: 30
 max_persistent_conns: 512
