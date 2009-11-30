@@ -16,7 +16,7 @@ class LabelStrip
   DEFAULTS = {:per_page => 7,               # number of labels per page.
               :page_break => "\n\n\n\n",  # code for page break.
               :input_delimeter => '\+',
-              :format => 20
+              :format => 0
              }.freeze
   
   def initialize(label_input,options = {})

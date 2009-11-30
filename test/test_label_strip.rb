@@ -5,51 +5,37 @@ require "label_strip"
 class TestLabelStrip < Test::Unit::TestCase
   DEFAULT_OPTS =
   {
-    :text => "This is a test label\nIt has two lines\n+\nThis is a second lable\nwith two lines two",
+    :text => "a\n+\nb",
   }
   
-  ACTUAL = "_/3A_/20F
- This is a test label
- It has two lines
+  ACTUAL = "_/3A_/16,2,1,1/_/2ta_/0t
 -*-
-_/3A_/20F
- This is a second 
- lable
- with two lines two
+_/3A_/16,2,1,1/_/2tb_/0t
 -*-"
 
 ELEVEN = ACTUAL + "
-_/3A_/20F
- 3
+_/3A_/16,2,1,1/_/2t3_/0t
 -*-
-_/3A_/20F
- 4
+_/3A_/16,2,1,1/_/2t4_/0t
 -*-
-_/3A_/20F
- 5
+_/3A_/16,2,1,1/_/2t5_/0t
 -*-
-_/3A_/20F
- 6
+_/3A_/16,2,1,1/_/2t6_/0t
 -*-
-_/3A_/20F
- 7
+_/3A_/16,2,1,1/_/2t7_/0t
 -*-
 
 
 
 
 
-_/3A_/20F
- 8
+_/3A_/16,2,1,1/_/2t8_/0t
 -*-
-_/3A_/20F
- 9
+_/3A_/16,2,1,1/_/2t9_/0t
 -*-
-_/3A_/20F
- 10
+_/3A_/16,2,1,1/_/2t10_/0t
 -*-
-_/3A_/20F
- 11
+_/3A_/16,2,1,1/_/2t11_/0t
 -*-"
 
   def setup
