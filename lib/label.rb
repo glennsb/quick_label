@@ -2,7 +2,7 @@
 class Label
   DEFAULT_SIZE = 0
   
-  HEADER = "_/0M_/14M_/20F_/3A_/16,2,1,2/_/2t"
+  HEADER = "_/0M_/14M_/20F_/3A_/16,2,1,2/_/3t"
   
   FOOTER = "-*-"
   
