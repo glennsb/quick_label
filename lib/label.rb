@@ -9,7 +9,7 @@ class Label
   LABEL_FORMATS = 
   {
     0 => {
-      :rows => 1,
+      :rows => 2,
       :cols => 13,
       :font_size => 18
     }
@@ -41,8 +41,8 @@ class Label
     return "" unless self.valid?
     
     str = "#{HEADER}"
-    str += @output.inject("") {|accum, line| accum += "#{line}"}
-    str += "_/0t\n#{FOOTER}"
+    str += @output.inject("") {|accum, line| accum += "#{line}_/0t\n"}
+    str += "#{FOOTER}"
     return str
   end
   

@@ -4,12 +4,12 @@ require "label"
 
 class TestLabel < Test::Unit::TestCase
 
-  TEST_LABEL = "_/0M_/14M_/20F_/3A_/16,2,1,2/_/3tabcdefghijklm_/0t
+  TEST_LABEL = "_/0M_/14M_/20F_/3A_/16,2,1,2/_/3tabcdefghijklm_/0t\nnopqrstuvwxyz_/0t
 -*-"
 
   DEFAULT_OPTS =
   {
-    :text => "abcdefghijklm",
+    :text => "abcdefghijklm\nnopqrstuvwxyz",
     :size => 0
   }
 
