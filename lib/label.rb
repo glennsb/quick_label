@@ -9,7 +9,7 @@ class Label
   LABEL_FORMATS = 
   {
     0 => {
-      :rows => 2,
+      :rows => 8,
       :cols => 13,
       :font_size => 18
     }
