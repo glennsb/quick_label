@@ -2,7 +2,8 @@
 class Label
   DEFAULT_SIZE = 0
   
-  HEADER = "_/0M_/14M_/20F_/3A_/16,2,1,2/_/3t"
+  HEADER = "_/3A_/18M_/16,2,2,1/_/16F
+_/2t"
   
   FOOTER = "-*-"
   
@@ -10,7 +11,7 @@ class Label
   {
     0 => {
       :rows => 8,
-      :cols => 13,
+      :cols => 22,
       :font_size => 18
     }
   }
