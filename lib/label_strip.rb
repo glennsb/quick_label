@@ -60,7 +60,7 @@ class LabelStrip
   end
   
   def raw_input
-    @labels.map{|l| l.text}.join("\n#{@options[:input_delimeter].gsub(/\\/,'')}\n")
+    @labels.map{|l| l.text}.join("\n#{@options[:input_delimeter].gsub(/\\/,'')}\n").squeeze("\n")
   end
 
   private
