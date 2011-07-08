@@ -12,7 +12,7 @@ _/2t"
   LABEL_FORMATS = 
   {
     0 => {
-      :rows => 7,
+      :rows => 9,
       :cols => 22,
       :font_size => 18
     }
