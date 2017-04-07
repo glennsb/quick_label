@@ -1,24 +1,21 @@
 require 'rubygems'
 require 'sinatra'
 
-require 'label_strip'
+require 'eisai-set'
 
 require 'tempfile'
 
-get "/quick_barcode*" do
-  # @strip = LabelStrip.new("")
+get "/eisai-label*" do
   erb :new
 end
 
-post "/quick_barcode*" do
-  @strip = LabelStrip.new(params[:labels].gsub(/\r/,"\n"))
+post "/eisai-label*" do
+  @strip = EisaiSet.new(params[:ids].split(/\s+/).map(&:squeeze).map(&:strip).reject(&:empty?))
   @copies = params[:copies].to_i
   if nil == @copies || @copies <= 0 || @copies > 100 then
     @copies = 1
   end
   case params[:submit]
-    when /validate/
-      erb :new
     when /print/
       child = fork do
         if @strip && @strip.valid?
@@ -31,7 +28,7 @@ post "/quick_barcode*" do
 end
 
 def print(text,copies=1)
-  file = Tempfile.new("quick-label")
+  file = Tempfile.new("eisai-label")
   copies.times do
     file.puts(text)
   end

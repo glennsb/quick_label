@@ -1,4 +1,5 @@
 require 'label'
+require 'date'
 
 class Array
   def / len
@@ -12,17 +13,26 @@ class Array
 end
 
 
-class LabelStrip
+class EisaiSet
   DEFAULTS = {:per_page => 7,               # number of labels per page.
               :page_break => "\n\n\n\n",  # code for page break.
               :input_delimeter => '\+',
               :format => 0
              }.freeze
   
+  TUBES = {
+    "W1AT" => 4,
+    "W2AT" => 4,
+    "W3AT" => 4,
+    "W4AT" => 4,
+    "W5AT" => 4,
+    "W6AT" => 4,
+  }
   def initialize(label_input,options = {})
     @labels = []
     @options = DEFAULTS.dup.merge options
     @valids = []
+    @now = DateTime.now.new_offset(0).strftime("%Y%m%d")
     append_input(label_input)
   end
 
@@ -69,8 +79,13 @@ class LabelStrip
   # Does the work of translating the input text into laabel objects
   #
   def append_input(input)
-    input.split(/\n#{@options[:input_delimeter]}\n/).each do |label_part|
-      @labels << Label.new(label_part,@options[:format])
+    input.each do |sid|
+      TUBES.each do |tid,count|
+        count.times do |c|
+          label_part = "#{sid}-#{tid}#{c+1}\n#{@now}"
+          @labels << Label.new(label_part,@options[:format])
+        end
+      end
     end
   end
 end

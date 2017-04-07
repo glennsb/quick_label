@@ -1,31 +1,17 @@
-<% if @strip %>
-    <% if @strip.valid? %>
-      <h3>Valid!</h3>
-    <% else %>
-      <hr>Possible problems...</hr>
-      <ul>
-        <% @strip.errors.each do |e| %>
-        <li>Error at <%= e[:index]+1 %>: <%= e[:errors][:format] || e[:errors][:text] %>
-        <% end %>
-      </ul>
-    <% end %>
-    
-    <br/>
-    <pre>
-<%= @strip %>
-    </pre>
-<% end %>
-
-
-
 <form method="post">
-  <textarea name='labels' rows='8' cols='21'><%= @strip.raw_input if @strip %></textarea>
+  <textarea name='ids' rows='8' cols='21'></textarea>
   <br/>
-  <input name='submit' type='submit' value='validate'/>
-  <% if @strip && @strip.valid? %>
   <br/>
   Copies: <input name='copies' type='text' maxlength='3' size='3' value='<%= @copies %>'>
-  <br>
+  <br/>
   <input name='submit' type='submit' value='print'>
-  <% end %>
 </form>
+<br/>
+<% if @strip.valid? %>
+  <p>
+    Label(s) should be printing
+  </p>
+  <pre>
+<%= @strip.to_s %>
+  </pre>
+<% end %>

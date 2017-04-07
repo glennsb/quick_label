@@ -2,8 +2,7 @@
 class Label
   DEFAULT_SIZE = 0
   
-  HEADER = "_/3A_/18M_/16,2,2,1/_/16F
-_/2t"
+  HEADER = "_/3A_/18M_/16,2,2,1/_/2t"
   
   SPACER = "       "
   
@@ -46,11 +45,9 @@ _/2t"
     str = "#{HEADER}"
     @output.each_with_index do |line,index|
       if 0 == index
-        str += "#{line}_/0t\n"
-        str += "#{SPACER}#{line}\n"
-      else
-        str += "#{SPACER}#{line}\n"
+        str += "#{line}_/0t_/18F\n"
       end
+      str += "#{SPACER}#{line}\n"
     end
     # str += @output.inject("") {|accum, line| accum += "#{line}_/0t\n"}
     str += "#{FOOTER}"
