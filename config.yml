@@ -1,12 +1,12 @@
 environment: production
-chdir: /usr/local/apps/quick_barcode
+chdir: /usr/local/apps/eisai-label
 address: 127.0.0.1
 #user: www
 #group: www
-port: 4568
-pid: /usr/local/apps/quick_barcode/thin.pid
-rackup: /usr/local/apps/quick_barcode/config.ru
-log: /usr/local/apps/quick_barcode/thin.log
+port: 4569
+pid: /usr/local/apps/eisai-label/thin.pid
+rackup: /usr/local/apps/eisai-label/config.ru
+log: /usr/local/apps/eisai-label/thin.log
 max_conns: 1024
 timeout: 30
 max_persistent_conns: 512
