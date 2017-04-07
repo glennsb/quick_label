@@ -80,8 +80,8 @@ class EisaiSet
   #
   def append_input(input)
     input.each do |sid|
-      TUBES.each do |tid,count|
-        count.times do |c|
+      TUBES.keys.sort.each do |tid|
+        TUBES[tid].times do |c|
           label_part = "#{sid}-#{tid}#{c+1}\n#{@now}"
           @labels << Label.new(label_part,@options[:format])
         end
