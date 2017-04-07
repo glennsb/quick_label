@@ -1,17 +1,6 @@
 <form method="post">
   <textarea name='ids' rows='8' cols='21'></textarea>
   <br/>
-  <br/>
-  Copies: <input name='copies' type='text' maxlength='3' size='3' value='<%= @copies %>'>
-  <br/>
   <input name='submit' type='submit' value='print'>
 </form>
 <br/>
-<% if @strip.valid? %>
-  <p>
-    Label(s) should be printing
-  </p>
-  <pre>
-<%= @strip.to_s %>
-  </pre>
-<% end %>

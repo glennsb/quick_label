@@ -11,15 +11,15 @@ end
 
 post "/eisai-label*" do
   @strip = EisaiSet.new(params[:ids].split(/\s+/).map(&:squeeze).map(&:strip).reject(&:empty?))
-  @copies = params[:copies].to_i
-  if nil == @copies || @copies <= 0 || @copies > 100 then
-    @copies = 1
-  end
+  #@copies = params[:copies].to_i
+  #if nil == @copies || @copies <= 0 || @copies > 100 then
+    #@copies = 1
+  #end
   case params[:submit]
     when /print/
       child = fork do
         if @strip && @strip.valid?
-          print(@strip.to_s,@copies)
+          print(@strip.to_s)
         end
       end
       Process.detach(child)
