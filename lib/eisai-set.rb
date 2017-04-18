@@ -21,6 +21,7 @@ class EisaiSet
              }.freeze
   
   TUBES = {
+    "Plasma" => 1,
     "W1AT" => 4,
     "W2AT" => 4,
     "W3AT" => 4,
@@ -82,7 +83,12 @@ class EisaiSet
     input.each do |sid|
       TUBES.keys.sort.each do |tid|
         TUBES[tid].times do |c|
-          label_part = "#{sid}-#{tid}#{c+1}\n#{@now}"
+          suffix = if TUBES[tid].times > 1
+                     "#{c+1}"
+                   else
+                     ""
+                   end
+          label_part = "#{sid}-#{tid}#{suffix}\n#{@now}"
           @labels << Label.new(label_part,@options[:format])
         end
       end
