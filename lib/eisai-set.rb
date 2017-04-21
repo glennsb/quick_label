@@ -83,7 +83,7 @@ class EisaiSet
     input.each do |sid|
       TUBES.keys.sort.each do |tid|
         TUBES[tid].times do |c|
-          suffix = if TUBES[tid].times > 1
+          suffix = if TUBES[tid] > 1
                      "#{c+1}"
                    else
                      ""
