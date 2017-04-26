@@ -14,8 +14,8 @@ end
 
 
 class EisaiSet
-  DEFAULTS = {:per_page => 7,               # number of labels per page.
-              :page_break => "\n\n\n\n",  # code for page break.
+  DEFAULTS = {:per_page => 200,               # number of labels per page.
+              :page_break => "\n",  # code for page break.
               :input_delimeter => '\+',
               :format => 0
              }.freeze
