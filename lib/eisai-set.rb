@@ -21,13 +21,13 @@ class EisaiSet
              }.freeze
   
   TUBES = {
-    "Plasma" => 1,
-    "W1AT" => 4,
-    "W2AT" => 4,
-    "W3AT" => 4,
-    "W4AT" => 4,
-    "W5AT" => 4,
-    "W6AT" => 4,
+    "Plasma" => {:count => 1, :reagent => 'EDTA blood tube'},
+    "W1AT" => {:count => 4, :reagent => '730uM'},
+    "W2AT" => {:count => 4, :reagent => '240uM'},
+    "W3AT" => {:count => 4, :reagent => '80uM'},
+    "W4AT" => {:count => 4, :reagent => 'RNA40'},
+    "W5AT" => {:count => 4, :reagent => 'R484'},
+    "W6AT" => {:count => 4, :reagent => 'PBS'},
   }
   def initialize(label_input,options = {})
     @labels = []
@@ -82,13 +82,14 @@ class EisaiSet
   def append_input(input)
     input.each do |sid|
       TUBES.keys.sort.each do |tid|
-        TUBES[tid].times do |c|
-          suffix = if TUBES[tid] > 1
+        tt = TUBES[tid][:count]
+        tt.times do |c|
+          suffix = if tt > 1
                      "#{c+1}"
                    else
                      ""
                    end
-          label_part = "#{sid}-#{tid}#{suffix}\n#{@now}"
+          label_part = "#{sid}-#{tid}#{suffix}\n#{@now}\n#{TUBES[tid][:reagent]}"
           @labels << Label.new(label_part,@options[:format])
         end
       end
