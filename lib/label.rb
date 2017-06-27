@@ -2,9 +2,9 @@
 class Label
   DEFAULT_SIZE = 0
   
-  HEADER = "_/3A_/18M_/16,2,2,1/_/2t"
+  HEADER = "_/0M_/3A_/18M_/17,2,0,3/_/2t"
   
-  SPACER = "       "
+  SPACER = " "
   
   FOOTER = "-*-"
   
@@ -41,11 +41,11 @@ class Label
   #
   def formatted_label
     return "" unless self.valid?
-    
+
     str = "#{HEADER}"
     @output.each_with_index do |line,index|
       if 0 == index
-        str += "#{line}_/0t_/18F\n"
+        str += "#{line}_/0t_/18F\n\n\n\n"
       end
       str += "#{SPACER}#{line}\n"
     end
