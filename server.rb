@@ -10,7 +10,7 @@ get "/eisai-label*" do
 end
 
 post "/eisai-label*" do
-  @strip = EisaiSet.new(params[:ids].split(/\s+/).map(&:squeeze).map(&:strip).reject(&:empty?))
+  @strip = EisaiSet.new(params[:ids].split(/\s+/).map(&:strip).reject(&:empty?))
   case params[:submit]
     when /print/
       child = fork do
