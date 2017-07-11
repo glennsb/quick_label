@@ -19,7 +19,7 @@ class EisaiSet
               :input_delimeter => '\+',
               :format => 0
              }.freeze
-  
+
   TUBES = {
     "Plasma" => {:count => 1, :reagent => 'EDTA blood tube'},
     "W1AT" => {:count => 4, :reagent => '730uM'},
@@ -28,6 +28,7 @@ class EisaiSet
     "W4AT" => {:count => 4, :reagent => 'RNA40'},
     "W5AT" => {:count => 4, :reagent => 'R484'},
     "W6AT" => {:count => 4, :reagent => 'PBS'},
+    "Pax" => {:count => 1, :reagent => 'Paxgene'},
   }
   def initialize(label_input,options = {})
     @labels = []
@@ -45,7 +46,7 @@ class EisaiSet
     self.to_s
     return ! @valids.include?(false)
   end
-  
+
   def errors
     return [] if valid?
     errors = []
@@ -55,7 +56,7 @@ class EisaiSet
     end
     return errors
   end
-  
+
   # output all label string versions of objects according to options.
   def to_s
     @valids = []
@@ -69,13 +70,13 @@ class EisaiSet
     end
     label_str.join("\n")
   end
-  
+
   def raw_input
     @labels.map{|l| l.text}.join("\n#{@options[:input_delimeter].gsub(/\\/,'')}\n").squeeze("\n")
   end
 
   private
-  
+
   #
   # Does the work of translating the input text into laabel objects
   #
