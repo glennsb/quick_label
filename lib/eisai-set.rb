@@ -60,7 +60,7 @@ class EisaiSet
   # output all label string versions of objects according to options.
   def to_s
     @valids = []
-    label_str = []
+    label_str = ["_/0A"]
     (@labels/@options[:per_page]).each_with_index do |hunk,offset|
       hunk.each_with_index do |label,index|
         @valids << label.valid?
