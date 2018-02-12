@@ -47,7 +47,7 @@ class Label
       if 0 == index
         str += "#{line}_/0t_/18F\n\n\n\n"
       end
-      str += "#{SPACER}#{line}\n"
+      str += "#{line}\n"
     end
     # str += @output.inject("") {|accum, line| accum += "#{line}_/0t\n"}
     str += "#{FOOTER}"
