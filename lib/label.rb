@@ -46,8 +46,9 @@ class Label
     @output.each_with_index do |line,index|
       if 0 == index
         str += "#{line}_/0t_/18F\n\n\n\n"
+      else
+        str += "#{line}\n"
       end
-      str += "#{line}\n"
     end
     # str += @output.inject("") {|accum, line| accum += "#{line}_/0t\n"}
     str += "#{FOOTER}"
