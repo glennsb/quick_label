@@ -91,7 +91,7 @@ class EisaiSet
                      ""
                    end
           #label_part = "#{sid}\n #{tid}#{suffix}\n#{@now}\n#{TUBES[tid][:reagent]}"
-          label_part = "#{sid}-#{tid}\n#{sid}\n #{tid}#{suffix}\n#{@now}\n#{TUBES[tid][:reagent]}"
+          label_part = "#{sid}-#{tid}#{suffix}\n#{sid}\n #{tid}#{suffix}\n#{@now}\n#{TUBES[tid][:reagent]}"
           @labels << Label.new(label_part,@options[:format])
         end
       end
